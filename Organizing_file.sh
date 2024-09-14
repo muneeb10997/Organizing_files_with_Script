@@ -44,3 +44,4 @@ do
   fi
 done
 
+echo "File organization completed!"
