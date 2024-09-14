@@ -37,7 +37,7 @@ do
       then
           mv "$file" "$1/css/"
 
-      elif [ "$extension" == "c++" ]
+      elif [ "$extension" == "cpp" ]
       then
           mv "$file" "$1/cpp/"
       fi
