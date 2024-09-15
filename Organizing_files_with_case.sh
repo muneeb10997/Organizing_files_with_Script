@@ -14,13 +14,14 @@ else
 fi
 
 # Create directories for different file types
-mkdir -p "$Input_Folder_Path/Documents" "$Input_Folder_Path/cpp" "$Input_Folder_Path/css" "$Input_Folder_Path/python"
+mkdir -p "$Input_Folder_Path/Documents" "$Input_Folder_Path/c++" "$Input_Folder_Path/css" "$Input_Folder_Path/python"
 
 # Iterate over files in the input directory
 for file in "$Input_Folder_Path"/*
 do 
     if [ -f "$file" ]; then
         extension="${file##*.}"
+        base_name=$(basename "$file")
         case "$extension" in 
             py)
                 mv "$file" "$Input_Folder_Path/python/"
@@ -32,7 +33,10 @@ do
                 mv "$file" "$Input_Folder_Path/css/"
                 ;;
             cpp)
-                mv "$file" "$Input_Folder_Path/cpp/"
+                mv "$file" "$Input_Folder_Path/c++/"
+                ;;
+            *)
+                echo "skipping the unknown files : $base_name"
                 ;;
         esac
     fi
